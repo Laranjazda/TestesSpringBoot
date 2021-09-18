@@ -11,8 +11,8 @@ public class CharacterController {
     @Autowired
     private CharacterRepository characterRepository;
 
-    @GetMapping("/api/character/{code}")
-    public @ResponseBody ResponseEntity consult(@PathVariable("code") Integer code){
+    @GetMapping("/api/character/{characterId}")
+    public @ResponseBody ResponseEntity consult(@PathVariable("characterId") Integer code){
         return characterRepository.findById(code)
                 .map(record -> ResponseEntity.ok(record))
                 .orElse(ResponseEntity.notFound().build());
