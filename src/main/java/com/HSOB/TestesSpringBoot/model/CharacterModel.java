@@ -1,9 +1,14 @@
 package com.HSOB.TestesSpringBoot.model;
 
+import lombok.Getter;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
+@Document(collection = "SpringMongodb")
+@Getter
 @Entity(name = "character")//entou dizendo que essa classe é uma entidade do banco de dados
 public class CharacterModel {
     @Id

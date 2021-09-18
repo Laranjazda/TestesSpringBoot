@@ -18,7 +18,7 @@ public class CharacterController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    @PostMapping
+    @PostMapping(path = "/api/character/save")
     public CharacterModel save(@RequestBody CharacterModel characterModel){
         return characterRepository.save(characterModel);
     }
