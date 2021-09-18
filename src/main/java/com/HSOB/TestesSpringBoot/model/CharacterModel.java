@@ -10,7 +10,6 @@ import javax.persistence.Id;
 
 @Document(collection = "character")
 @Getter
-@Setter
 @Entity(name = "characters")//entou dizendo que essa classe é uma entidade do banco de dados
 public class CharacterModel {
     @Id
@@ -23,6 +22,14 @@ public class CharacterModel {
     public String login;
     @Column(nullable = false, length = 20)
     public String password;
+
+//    public CharacterModel(Integer characterId, String name, String gender, String login, String password) {
+//        this.characterId = characterId;
+//        this.name = name;
+//        this.gender = gender;
+//        this.login = login;
+//        this.password = password;
+//    }
 
     public Integer getCharacterId() {
         return characterId;
