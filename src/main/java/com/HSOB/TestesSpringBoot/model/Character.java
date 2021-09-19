@@ -1,19 +1,17 @@
 package com.HSOB.TestesSpringBoot.model;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Generated;
 import org.springframework.data.mongodb.core.mapping.Document;
+import javax.persistence.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-
+@Entity//entou dizendo que essa classe é uma entidade do banco de dados
 @Document(collection = "character")
-@Getter
-@Entity(name = "characters")//entou dizendo que essa classe é uma entidade do banco de dados
-public class CharacterModel {
+
+public class Character {
     @Id
-    public Integer characterId;
+    @GeneratedValue(strategy = GenerationType.AUTO)//Gera automaticamente o Id
+    public Long id;
+
     @Column(nullable = false, length = 50)
     public String name;
     @Column(nullable = false, length = 20)
@@ -23,20 +21,12 @@ public class CharacterModel {
     @Column(nullable = false, length = 20)
     public String password;
 
-//    public CharacterModel(Integer characterId, String name, String gender, String login, String password) {
-//        this.characterId = characterId;
-//        this.name = name;
-//        this.gender = gender;
-//        this.login = login;
-//        this.password = password;
-//    }
-
-    public Integer getCharacterId() {
-        return characterId;
+    public Long getId() {
+        return id;
     }
 
-    public void setCharacterId(Integer characterId) {
-        this.characterId = characterId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {
